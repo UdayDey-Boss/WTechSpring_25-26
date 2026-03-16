@@ -13,8 +13,8 @@ function collect_lastname()
     return false;
 }
 
-function collect_email()
-{
+
+
     let email = document.getElementById("email").value;
     console.log("Email:", email);
     

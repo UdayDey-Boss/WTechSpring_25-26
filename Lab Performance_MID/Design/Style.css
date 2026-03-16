@@ -1,0 +1,33 @@
+body{
+    font-family: Arial, sans-serif;
+    background:rgb(240, 239, 239)
+}
+
+.container{
+    width: 380px;
+    margin: 85px auto;
+
+}
+
+
+fieldset{
+    background: white;
+    padding: 25px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+
+
+input{
+    width:93%;
+    padding:10px;
+    border: 2px solid rgb(204, 204, 204);
+    border-radius: 3.5px;
+
+}
+
+legend{
+    font-size: 22px;
+    font-weight: bold;
+}
