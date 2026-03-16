@@ -17,8 +17,7 @@ function collect_email()
 {
     let email = document.getElementById("email").value;
     console.log("Email:", email);
-    return false;
-}
+    
 
 function collect_phone()
 {
