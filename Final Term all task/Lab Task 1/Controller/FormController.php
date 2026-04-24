@@ -1,5 +1,8 @@
 <?php
-session_start();
+include "../Model/db.php";
+
+
+
 
 $name = "";
 $email = "";
@@ -133,6 +136,19 @@ $gender = "";
     else{
         echo "Please Try Again<br>";
     }
+
+     $database = new db();
+    $connection = $database->connection();
+
+    $result = $database->insertData($connection,"users",$name,$email,$website,$comment,$gender);
+
+    if($result){
+        echo "Inserted into Database<br>";
+    }
+    else{
+        echo "Database Error<br>";
+    }
+
 
     
     $data = file_get_contents($datafile);
