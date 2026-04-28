@@ -1,36 +1,22 @@
 <?php
 class db{
 
-    function connection()
-    {
-        $db_host = "localhost";
-        $db_user = "root";
-        $db_password = "";
-        $db_name = "form_project";
+function connection()
+{
+    return new mysqli("localhost","root","","form_project");
+}
 
-        $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+function signup($conn,$table,$name,$email,$website,$comment,$gender,$password,$filepath)
+{
+    $sql="INSERT INTO $table (name,email,website,comment,gender,password,filepath)
+          VALUES ('$name','$email','$website','$comment','$gender','$password','$filepath')";
+    return $conn->query($sql);
+}
 
-        if($connection->connect_error)
-        {
-            die("Database connection failed: " . $connection->connect_error);
-        }
-
-        return $connection;
-    }
-
-     function signup($connection, $tablename, $username, $password){
-        $sql = "INSERT INTO ".$tablename." (username,password) 
-                VALUES ('".$username."', '".$password."')";
-        return $connection->query($sql);
-    }
-
-    
-    function signin($connection, $tablename, $username, $password){
-        $sql = "SELECT * FROM ".$tablename." 
-                WHERE username='".$username."' AND password='".$password."'";
-        return $connection->query($sql);
-    }
-
- 
+function signin($conn,$table,$name,$password)
+{
+    $sql="SELECT * FROM $table WHERE name='$name' AND password='$password'";
+    return $conn->query($sql);
+}
 }
 ?>

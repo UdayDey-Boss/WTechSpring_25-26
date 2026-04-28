@@ -4,21 +4,26 @@ session_start();
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
-    $name = $_POST["name"];
-    $pass = $_POST["password"];
+    $name=$_POST["name"];
+    $password=$_POST["password"];
 
-    $db = new db();
-    $conn = $db->connection();
+    $db=new db();
+    $conn=$db->connection();
 
-    $result = $db->signin($conn,"users",$name,$pass);
+    $result=$db->signin($conn,"users",$name,$password);
 
-    if($result && $result->num_rows > 0)
+    if($result && $result->num_rows>0)
     {
-        $_SESSION["user"] = $name;
-        header("Location: ../View/form.php");
+        $_SESSION["UserName"]=$name;
+        $_SESSION["loggedIn"]=true;
+
+        $row=$result->fetch_assoc();
+        $_SESSION["filepath"]=$row["filepath"];
+
+        header("Location: ../View/Dashboard.php");
     }
     else{
-        echo "Login Failed";
+        echo "Invalid Login";
     }
 }
 ?>

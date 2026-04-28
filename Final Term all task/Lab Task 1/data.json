@@ -19,5 +19,13 @@
         "website": " https:\/\/google.com",
         "comment": "i am a student ",
         "gender": "Male"
+    },
+    {
+        "name": "Uday dey",
+        "email": "udayday4.ud@gmail.com",
+        "website": "https:\/\/google.com",
+        "comment": "I am a boy ",
+        "gender": "Male",
+        "password": "123456789"
     }
 ]
